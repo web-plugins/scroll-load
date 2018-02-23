@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动加载</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .scroll {
+            height: 300px;
+            border: 1px solid #000;
+            overflow: auto;
+        }
+        .box {
+            height: 400px;
+            border: 1px solid #dedede;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="scroll">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="scrollLoad.js"></script>
+<script>
+
+    function loadData(){
+        // mock: load data
+        console.log("toBottom")
+        $(".scroll").append('<div class="box"></div>')   
+    }
+
+    $(".scroll").scrollLoad(function(){
+        loadData()
+    })
+</script>
+</body>
+</html>
